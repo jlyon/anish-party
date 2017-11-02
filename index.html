@@ -5,7 +5,7 @@
 </head>
 <body>
 
-<iframe id="iframe" src="https://cdn.rawgit.com/syntagmatic/ebec037138b5866ff0d3/raw/e2d026e2a3f5d2b0b0fff344a1560823e200d977/index.html"></iframe>
+<iframe id="iframe" src="https://cdn.rawgit.com/syntagmatic/ebec037138b5866ff0d3/raw/e2d026e2a3f5d2b0b0fff344a1560823e200d977/index.html" scrolling="no"></iframe>
 
 <img src="anish.png" id="anish"/>
 <div class="container">
@@ -75,7 +75,7 @@
     }
     $('#bus').animate({
       left:  '-200px'
-    }, 5000, function() {
+    }, 8000, function() {
       if (i != null) {
         i++;
         i = i < people.length ? i : 0;
@@ -85,17 +85,18 @@
     });
   }
 
-  bus();
-  setTimeout(function(){
-    anish();
+  setTimeout(function() {
+    bus();
+    setTimeout(function () {
+      anish();
 
-    setTimeout(function(){
-      i = -1;
-    }, 16000);
+      setTimeout(function () {
+        i = -1;
+      }, 16000);
 
-    anish();
-  }, 10000);
-
+      anish();
+    }, 5000);
+  }, 5000);
 </script>
 
 
@@ -104,12 +105,14 @@
   body {
     margin: 0;
     padding: 0;
+    overflow: hidden;
   }
 
   iframe {
     width: 100%;
     height: 100%;
     border: none;
+    overflow: hidden;
   }
 
   /*.container{
@@ -133,7 +136,7 @@
     position: absolute;
     bottom: 0;
     left: -200px;
-    background: url(school-bus.png) center 82px no-repeat;
+    background: url(bus.png) center 82px no-repeat;
     background-size: 200px;
     height: 220px;
     width: 200px;
