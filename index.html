@@ -1,0 +1,150 @@
+<html>
+<head>
+  <title>Anish.Party</title>
+
+</head>
+<body>
+
+<iframe id="iframe" src="https://cdn.rawgit.com/syntagmatic/ebec037138b5866ff0d3/raw/e2d026e2a3f5d2b0b0fff344a1560823e200d977/index.html"></iframe>
+
+<img src="anish.png" id="anish"/>
+<div class="container">
+</div>
+
+<div id="bus">
+  <img src="" id="person"/>
+</div>
+
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
+<script>
+  var width = window.innerWidth;
+  var height = window.innerHeight;
+
+  var audio = new Audio('party.mp3');
+  audio.play();
+
+  var people = [
+    'https://avatars1.githubusercontent.com/u/550909?s=460&v=4', //jeff
+    'https://avatars3.githubusercontent.com/u/1031346?s=400&v=4', //ryan
+    'https://avatars0.githubusercontent.com/u/209451?s=460&v=4', //aaron
+    'https://avatars1.githubusercontent.com/u/1634686?s=460&v=4',
+    'https://avatars2.githubusercontent.com/u/4530562?s=460&v=4',
+    'https://avatars3.githubusercontent.com/u/14846241?s=460&v=4',
+    'https://avatars3.githubusercontent.com/u/7729784?s=460&v=4',
+    'https://avatars1.githubusercontent.com/u/7118222?s=460&v=4' //robert
+  ];
+
+
+  var direction = 0;
+  function anish() {
+    console.log('~~~ Party ~~~');
+    $('#anish').animate({
+      width: 1000*direction + 'px',
+      height: 1000*direction + 'px'
+    }, {
+      step: function(now,fx) {
+        $(this).css('-webkit-transform','rotate('+now+'deg)');
+        $(this).css('-moz-transform','rotate('+now+'deg)');
+        $(this).css('transform','rotate('+now+'deg)');
+      },
+      duration: 5000,
+      complete: function() {
+        direction = direction == 0 ? 1 : 0;
+        anish();
+        // Animation complete.
+      }
+    });
+  }
+
+
+  var i = null;
+  function bus() {
+    $('#bus').css('left', width + 'px');
+    if (i != null) {
+      $('#person').attr('src', people[i]).show();
+    }
+    else {
+      $('#person').hide();
+    }
+    $('#bus').animate({
+      left:  '-200px'
+    }, 5000, function() {
+      if (i != null) {
+        i++;
+        i = i < people.length ? i : 0;
+      }
+      bus();
+      // Animation complete.
+    });
+  }
+
+  bus();
+  setTimeout(function(){
+    anish();
+
+    setTimeout(function(){
+      i = -1;
+    }, 16000);
+
+    anish();
+  }, 10000);
+
+</script>
+
+
+<style>
+
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /*.container{
+    width: 100%;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+  }*/
+
+
+  #anish {
+    position: absolute;
+    top: 10%;
+    left: 40%;
+    width: 0;
+    height: 0;
+    z-index: 200;
+  }
+
+  #bus {
+    position: absolute;
+    bottom: 0;
+    left: -200px;
+    background: url(school-bus.png) center 82px no-repeat;
+    background-size: 200px;
+    height: 220px;
+    width: 200px;
+  }
+  #person {
+    width: 100px;
+    height: 100px;
+    padding-left: 63px;
+  }
+
+</style>
+
+</body>
+</html>
