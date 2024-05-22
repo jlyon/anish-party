@@ -1,12 +1,12 @@
 <html>
 <head>
-  <title>Anish.Party</title>
+  <title>ShopPad.fun</title>
 </head>
 <body>
 
 <iframe id="iframe" src="https://cdn.rawgit.com/syntagmatic/ebec037138b5866ff0d3/raw/e2d026e2a3f5d2b0b0fff344a1560823e200d977/index.html" scrolling="no"></iframe>
 
-<img src="anish.png" id="anish"/>
+<img src="mickey.png" id="anish"/>
 <div class="container">
 </div>
 
@@ -27,17 +27,25 @@
   var height = window.innerHeight;
 
   var audio = new Audio('party.mp3');
-  audio.play();
+
+  $('#bus').bind('click', function() {
+    alert('~~~ Party ~~~');
+    audio.play();
+  });
 
   var people = [
-    'https://avatars1.githubusercontent.com/u/550909?s=460&v=4', //jeff
-    'https://avatars3.githubusercontent.com/u/1031346?s=400&v=4', //ryan
-    'https://avatars0.githubusercontent.com/u/209451?s=460&v=4', //aaron
-    'https://avatars1.githubusercontent.com/u/1634686?s=460&v=4',
-    'https://avatars2.githubusercontent.com/u/4530562?s=460&v=4',
-    'https://avatars3.githubusercontent.com/u/14846241?s=460&v=4',
-    'https://avatars3.githubusercontent.com/u/7729784?s=460&v=4',
-    'https://avatars1.githubusercontent.com/u/7118222?s=460&v=4' //robert
+    'images/1.jpg',
+    'images/2.jpg',
+    'images/3.jpeg',
+    'images/4.jpeg',
+    'images/5.jpeg',
+    'images/6.jpeg',
+    'images/7.jpeg',
+    'images/8.jpeg',
+    'images/9.jpeg',
+    'images/10.jpeg',
+    'images/11.jpeg',
+    'images/12.jpeg'
   ];
 
 
@@ -73,7 +81,7 @@
       $('#person').hide();
     }
     $('#bus').animate({
-      left:  '-200px'
+      left:  '-400px'
     }, 8000, function() {
       if (i != null) {
         i++;
@@ -134,16 +142,17 @@
   #bus {
     position: absolute;
     bottom: 0;
-    left: -200px;
-    background: url(bus.png) center 82px no-repeat;
-    background-size: 200px;
-    height: 220px;
-    width: 200px;
+    left: -400px;
+    background: url(bus.png) center 164px no-repeat;
+    background-size: 400px;
+    height: 440px;
+    width: 400px;
   }
   #person {
-    width: 100px;
-    height: 100px;
-    padding-left: 63px;
+    width: 200px;
+    height: 133px;
+    padding-left: 126px;
+    padding-top: 67px;
   }
 
 </style>
